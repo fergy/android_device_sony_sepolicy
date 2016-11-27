@@ -1,0 +1,12 @@
+
+allow mm-qcamerad { cameraserver surfaceflinger mediaserver }:fd use;
+
+allow mm-qcamerad { camera_prop sysfs }:file r_file_perms;
+allow mm-qcamerad ion_device:chr_file rw_file_perms;
+
+r_dir_file(mm-qcamerad, sysfs_video)
+
+# Allow access to /dev/graphics/fb* for screen capture
+
+allow mm-qcamerad graphics_device:dir search;
+

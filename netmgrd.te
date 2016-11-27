@@ -1,0 +1,18 @@
+#Allow netmgrd operations
+allow netmgrd netmgrd:capability {
+    dac_override
+};
+
+allow netmgrd proc_net:file rw_file_perms;
+
+set_prop(netmgrd, system_prop)
+set_prop(netmgrd, net_radio_prop)
+
+allow netmgrd shell_exec:file rx_file_perms;
+
+rw_dir_file(netmgrd, sysfs)
+r_dir_file(netmgrd, sysfs_pronto)
+r_dir_file(netmgrd, sysfs_socinfo)
+r_dir_file(netmgrd, sysfs_subsys)
+
+allow netmgrd toolbox_exec:file rx_file_perms;

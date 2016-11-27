@@ -1,0 +1,7 @@
+
+allow rmt_storage debugfs_rmt_storage:file rw_file_perms;
+allow rmt_storage debugfs_rmt_storage:dir r_dir_perms;
+allow rmt_storage { debugfs debugfs_rmt_storage }:filesystem associate;
+
+r_dir_file(rmt_storage, sysfs_rmt_storage)
+r_dir_file(rmt_storage, sysfs_uio)

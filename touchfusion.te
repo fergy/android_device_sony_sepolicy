@@ -1,0 +1,3 @@
+
+allow touchfusion cgroup:dir create_dir_perms;
+allow touchfusion cgroup:file create_file_perms;

@@ -1,0 +1,22 @@
+allow system_server system_app_data_file:dir r_dir_perms;
+
+r_dir_file(system_server, sysfs_addrsetup)
+r_dir_file(system_server, sysfs_pronto)
+r_dir_file(system_server, sysfs_socinfo)
+r_dir_file(system_server, sysfs_subsys)
+
+# Grant access to Qualcomm MSM Interface (QMI) radio sockets to system services
+# (e.g., LocationManager)
+qmux_socket(system_server)
+
+# To improve app launch times - we would like to force all tasks to
+# run on big cores for app launch (sched_boost) - instead of just
+# boosting them to make it "more likely" to run on big cores.
+allow system_server zygote:process setsched;
+
+# remove fingerprint dataset when remove user account
+allow system_server fingerprintd_data_file:file r_file_perms;
+allow system_server fingerprintd_data_file:file create_file_perms;
+allow system_server fingerprintd_data_file:dir create_dir_perms;
+
+

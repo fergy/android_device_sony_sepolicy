@@ -1,0 +1,7 @@
+type drm_block_device, dev_type;
+#Misc partition
+type misc_partition, dev_type;
+
+type subsys_modem_device, dev_type;
+type ssd_block_device, dev_type;
+type trim_area_partition_device, dev_type;
